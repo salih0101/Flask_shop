@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Auto E-Shop</title>
+{% endblock %}
+
+{% block body %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal text-body-emphasis"><b>Каталог</b></h1>
+        <div class="section__one-2_header">
+        <p>В каталоге представлены многочисленные автозапчасти <br>зарубежных представителей</p>
+        </div>
+</div>
+
+<div class="container md-6">
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  {% for el in data %}
+  <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{ el.title }}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-body-secondary fw-light">$</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>{{ el.text }}</li>
+            </ul>
+            <a href="/buy/{{ el.id }}" class="w-100 btn btn-lg btn-outline-primary">Купить товар</a>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+{% endblock %}
+
+  </div>
